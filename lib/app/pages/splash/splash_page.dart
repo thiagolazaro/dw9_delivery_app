@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../core/config/env/env.dart';
 import '../../core/ui/widgets/delivery_button.dart';
 
 class SplashPage extends StatelessWidget {
@@ -17,7 +18,7 @@ class SplashPage extends StatelessWidget {
           DeliveryButton(
             width: 200,
             height: 200,
-            label: 'Cadastrar',
+            label: Env.i['backend_base_url'] ?? '',
             onPressed: () {},
           ),
           TextFormField(
