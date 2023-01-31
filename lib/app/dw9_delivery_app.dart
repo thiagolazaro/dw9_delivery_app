@@ -1,3 +1,4 @@
+import 'package:dw9_delivery_app/app/pages/splash/splash_page.dart';
 import 'package:flutter/material.dart';
 
 class Dw9DeliveryApp extends StatelessWidget {
@@ -8,7 +9,7 @@ class Dw9DeliveryApp extends StatelessWidget {
     return MaterialApp(
       title: 'Delivery App',
       routes: {
-        '/': (context) => Container(),
+        '/': (context) => const SplashPage(),
       },
     );
   }
