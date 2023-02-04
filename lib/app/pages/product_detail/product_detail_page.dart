@@ -5,6 +5,7 @@ import 'package:dw9_delivery_app/app/core/ui/helpers/size_extensions.dart';
 import 'package:dw9_delivery_app/app/core/ui/styles/text_styles.dart';
 import 'package:dw9_delivery_app/app/core/ui/widgets/delivery_appbar.dart';
 import 'package:dw9_delivery_app/app/core/ui/widgets/delivery_increment_decrement.dart';
+import 'package:dw9_delivery_app/app/dto/order_product_dto.dart';
 import 'package:dw9_delivery_app/app/models/product_model.dart';
 import 'package:dw9_delivery_app/app/pages/product_detail/product_detail_controller.dart';
 import 'package:flutter/material.dart';
@@ -67,7 +68,7 @@ class _ProductDetailPageState
                 height: 68,
                 padding: const EdgeInsets.all(8),
                 child: BlocBuilder<ProductDetailController, int>(
-                  builder: (context, amout) {
+                  builder: (context, amount) {
                     return DeliveryIncrementDecrement(
                       incrementTap: () {
                         controller.increment();
@@ -75,7 +76,7 @@ class _ProductDetailPageState
                       decrementTap: () {
                         controller.decrement();
                       },
-                      amout: amout,
+                      amount: amount,
                     );
                   },
                 ),
@@ -85,9 +86,14 @@ class _ProductDetailPageState
                 height: 68,
                 padding: const EdgeInsets.all(8),
                 child: BlocBuilder<ProductDetailController, int>(
-                  builder: (context, amout) {
+                  builder: (context, amount) {
                     return ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).pop(
+                          OrderProductDto(
+                              product: widget.product, amout: amount),
+                        );
+                      },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -101,7 +107,7 @@ class _ProductDetailPageState
                           ),
                           Expanded(
                             child: AutoSizeText(
-                              (widget.product.price * amout).currencyPTBR,
+                              (widget.product.price * amount).currencyPTBR,
                               maxFontSize: 13,
                               minFontSize: 5,
                               maxLines: 1,

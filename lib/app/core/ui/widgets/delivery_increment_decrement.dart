@@ -4,13 +4,13 @@ import 'package:dw9_delivery_app/app/core/ui/styles/colors_app.dart';
 import 'package:dw9_delivery_app/app/core/ui/styles/text_styles.dart';
 
 class DeliveryIncrementDecrement extends StatelessWidget {
-  final int amout;
+  final int amount;
   final VoidCallback incrementTap;
   final VoidCallback decrementTap;
 
   const DeliveryIncrementDecrement({
     super.key,
-    required this.amout,
+    required this.amount,
     required this.incrementTap,
     required this.decrementTap,
   });
@@ -37,7 +37,7 @@ class DeliveryIncrementDecrement extends StatelessWidget {
             ),
           ),
           Text(
-            amout.toString(),
+            amount.toString(),
             style: context.textStyles.textRegular.copyWith(
               fontSize: 17,
               color: context.colors.secondary,
