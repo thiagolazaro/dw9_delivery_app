@@ -81,6 +81,7 @@ class ProductDetailPage extends StatelessWidget {
                           maxFontSize: 13,
                           minFontSize: 5,
                           maxLines: 1,
+                          textAlign: TextAlign.center,
                           style: context.textStyles.textExtraBold,
                         ),
                       ),
