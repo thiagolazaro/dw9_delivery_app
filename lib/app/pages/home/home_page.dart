@@ -1,5 +1,5 @@
 import 'package:dw9_delivery_app/app/core/ui/base_state/base_state.dart';
-import 'package:dw9_delivery_app/app/core/ui/helpers/messages.dart';
+import 'package:dw9_delivery_app/app/core/ui/widgets/shopping_bag_widget.dart';
 import 'package:dw9_delivery_app/app/pages/home/home_controller.dart';
 import 'package:dw9_delivery_app/app/pages/home/home_state.dart';
 import 'package:flutter/material.dart';
@@ -56,7 +56,11 @@ class _HomePageState extends BaseState<HomePage, HomeController> {
                     );
                   },
                 ),
-              )
+              ),
+              Visibility(
+                visible: state.shoppingBag.isNotEmpty,
+                child: ShoppingBagWidget(bag: state.shoppingBag),
+              ),
             ],
           );
         },
